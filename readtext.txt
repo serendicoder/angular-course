@@ -1,0 +1,36 @@
+Main Learnings-
+-Components
+-Templates, Data Binding and Directives
+-Services and Dependency Injection
+-Http and Observables
+-Navigation and Routing
+
+Why Angular?
+-Expressive HTML
+-Strong Data Binding
+-Modular by design
+-Built-in Backend Integration
+
+Why Angular 2?
+-Built for Speed
+-Modern
+-Simplified API
+-Enhances Productivity
+
+An angular app is made of a set of Components and some Services that provide functionality across those Components
+
+Components
+----------
+Each component is comprised of a template- it is the html for view which includes bindings and directives
+
+Associated with it is a class which contains the code supporting the view. It is created in TypeScript. The scope
+of the decorator is limited to the feature it decorates.
+The class contains properties of data elements used in the view and methods which provide action to a view.
+
+Component also has metadata which provides additional information to Angular about the application.
+It is defined with a decorator. A decoratoe is a methos which adds metadata to a class, its methods
+and its components.
+
+Component decorator:
+Use single or double quoes to define inline templates in a single line.
+Use back ticks (`) to define multiline inline template inside the decorator.
