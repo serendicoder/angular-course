@@ -34,3 +34,108 @@ and its components.
 Component decorator:
 Use single or double quoes to define inline templates in a single line.
 Use back ticks (`) to define multiline inline template inside the decorator.
+------------------------------------------------------------------------------------------
+
+Property binding is better than interpolation.
+
+Data Binding is of the following types-
+Interpolation
+Property Binding
+===========================================================================================
+
+Filters
+FormsModule
+@NgModule to declare components as directives attribute within a component is now deprecated
+
+Interfaces
+A specification identifying a related set of properties and methods
+A class commits to supporting the specification by implementing the Interfaces, ie,
+a class contains the code for each property and method identifying an interface.
+TS supports Interfaces and they are transpiles so they are not found in the resulting javascript.
+They provide better tooling support as we build, debug and maintain our code.
+They are development time only.
+
+===========================================================================================
+
+Component lifecycle hook Interface
+OnInit : Perform component initialization, retrieves data. Good place to retrieve data for the
+template from a backend service.
+OnChanges : To perform action after change to input properties.
+OnDestroy : Perform cleanup
+
+Implement them as their interface in a module class. Import the interface. Include all their
+methods and attriutes in the implementation. Example- OnInit in ProductListComponent
+============================================================================================
+
+Pipes
+-----
+They transform bound properties before display. There are builtin pipes like:
+date, number, decimal, percent, currency, json, slice. They can also accept parameters.
+We can also make custom pipes.
+
+In code:
+There is our filter class which implements PipeTransform interface and it has a method called
+transform() where we write our filter logic. The first parameter of the transform method is the
+value we are transforming, the second parameter shows the arguments we need to perform the 
+transformation. Then we have the return type.
+
+We add a pipe decorator to the class to define it as a pipe. To this, we pass an object specifying
+the name of the pipe used in the template, then we have the necessary imports which, for example,
+in our case is Pipe, PipeTransform.
+---------------------------------------------------------------------------------------------
+
+@Input
+@Output with EventEmitter
+
+----------------------------------------------------------------------------------------
+
+Services
+========
+A class with a focused purpose. Used for features that-
+-Are independent from any particular component
+-Provide shared data or logic across components
+-Encapsulate external interactions
+Code becomes easier to test, debug and reuse.
+
+
+Steps-
+Building a service
+Registering a service
+Injecting a service
+
+Building a Service-
+Create the service class
+Define the metadata with a decorator
+Import what we need
+
+For registering a service, we need to register the provider. A provider is a code that can create
+or return a service. It is typically the service class itself.
+It is defined as the part of component metadata.
+It is injectable to component and any of its children.
+
+OnInit lifecycle hook is a great place for compoenent initialization and to retrieve data
+for the template.
+--------------------------------------------------------------------------------------
+
+-Observables and Reactive Extensions
+-Setup to use Http Request
+-Sending and Http Request and map the result to an array
+-Subscribing to an Observable to get the result
+
+Observable is an array whose items arrive asynchronously over time and help us manage 
+asynchronous data. Angular uses it with the help of Reactive Extensions.
+
+Difference between Promise and Observables-
+Promise- Returns a single value or error. 
+    It is not cancellable.
+Observables- Works with multiple values over time.
+    It can be cancelled.
+    It supports map, filter, reduce and similar operators.
+
+Promises cana be used instead of Oservables when calling Http in Angular if we wish.
+
+Setting up Observables-
+-Include the Angular Http script
+-Register Http Providers
+-Import RxJS
+
